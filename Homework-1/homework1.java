@@ -13,6 +13,7 @@ public class Homework1 {
    * 
    * @param args Commandline input arugments.
    */
+   
   public static void main(String[] args) {
     Homework1 hw1 = new Homework1();
 
@@ -59,13 +60,12 @@ public class Homework1 {
   public void problem1() {
    
     /**
-    * The first component of problem1 creates a variable of type double, result1, and assigns to it
-    * the double value derived from dividing 5.0 by 4.0. Because all values are correctly typed, the correct result, 
-    * 1.25, is stored.
-    */
+     * The first component of problem1 creates a variable of type double, result1, and assigns to it
+     * the double value derived from dividing 5.0 by 4.0. Because all values are correctly typed, the correct result, 
+     * 1.25, is stored.
+     */
    
     double result1 = 5.0 / 4.0;
-    System.out.println(result1);
     if (result1 == 1.25) {
       System.out.println("Problem 1a: successfully completed!");
     } else {
@@ -73,9 +73,10 @@ public class Homework1 {
     }
 
     /**
-    * The second component uses Java's standard math library to store the value of four squared as the double result2.
-    * All syntax is correct as-is.
-    */
+     * The second component uses Java's standard math library to calculate the value of four squared and then stores it
+     * as the double result2.
+     * All syntax is correct as-is.
+     */
 
     double result2 = Math.pow(4,2);
     if (result2 == 16) {
@@ -85,10 +86,10 @@ public class Homework1 {
     }
     
     /**
-    * The third and final component creates two new strings and references them as strA and strB.
-    * It then checks for equality between the two. The error lies in the type of equality being checked,
-    * being initially an "==" rather than ".equals()."
-    */
+     * The third and final component creates two new strings and references them as strA and strB.
+     * It then checks for equality between the two. The error lies in the type of equality being checked,
+     * being initially an "==" rather than ".equals()."
+     */
 
     String strA = new String("foo");
     String strB = new String("foo");
@@ -102,13 +103,13 @@ public class Homework1 {
   // PROBLEM 2   
 
   /**
-  * This method takes one double and returns an integer that is rounded up from that double.
-  * This applies also to negative values (i.e., that the negative double -4.2
-  * would be rounded up to -4.0, and so on).
-  *
-  * @param initialValue The input.
-  * @return finalValue The final integer value, rounded up.
-  */
+   * This method takes one double and returns an integer that is rounded up from that double.
+   * This applies also to negative values (i.e., that the negative double -4.2
+   * would be rounded up to -4.0, and so on).
+   *
+   * @param initialValue The input.
+   * @return finalValue The final integer value, rounded up.
+   */
 
   public int topInt(double initialValue) {
     int finalValue;
@@ -125,11 +126,11 @@ public class Homework1 {
   // PROBLEM 3
  
   /**
-  * This method takes a single character uses it to draw a 4x4 character rectangle
-  * with an internal 2x2 white space..
-  *
-  * @param buildingBlock The input character.
-  */
+   * This method takes a single character uses it to print a 4x4 character rectangle
+   * with an internal 2x2 white space.
+   *
+   * @param buildingBlock The input character.
+   */
 
   public void draw4x4(char buildingBlock) {
     char rowEdge[] = new char[] {buildingBlock, buildingBlock, buildingBlock, buildingBlock};
@@ -146,8 +147,13 @@ public class Homework1 {
   // PROBLEM 4
  
   /**
-  *
-  */
+   * citationName takes in two Strings representing an individual's first and last name
+   * and returns a String with their last name and first initial, in a typical citation format.
+   * 
+   * @param firstName The author's first name.
+   * @param lastName The author's last name.
+   * @return formatName The formatted result.
+   */
 
   public String citationName(String firstName, String lastName) {
     String firstInitial = firstName.substring(0, 1);
@@ -158,13 +164,18 @@ public class Homework1 {
   // PROBLEM 5
 
   /**
-  *
-  */
+   * The method min3 taken in three double values, determines the smallest value amongst them, and returns that value.
+   * 
+   * @param value1 The first input value.
+   * @param value2 The second input value.
+   * @param value3 The third input value.
+   * @return minValue The smallest value of the three.
+   */
 
-  /* As a clarification, the formatting of the "test" statements is such that
-   * the min3 method should not, in fact, be explicitly responsible for the printing
-   * of the the minimum value. It should actually return the value; the instructions
-   * presented are misleading, and will lead to compilation errors.
+  /* As a clarification, the formatting of the "test" statements in this homework is such 
+   * that the min3 method should not be explicitly responsible for the printing
+   * of the the minimum value. It should simply return the value; the instructions
+   * presented led to compilation errors.
    */
 
   public double min3(double value1, double value2, double value3) {
@@ -183,8 +194,13 @@ public class Homework1 {
   // PROBLEM 6
   
   /**
-  *
-  */
+   * The method fibonacci takes in an integer representing a position in a standard fibonacci sequence
+   * (beginning with the numbers 0 and 1 as seeds) and, through recursion, determines and returns
+   * the fibonacci number at that position.
+   *   
+   * @param n Input value representing the requested position in the fibonacci sequence.
+   * @return The fibonacci at that position.
+   */
 
   public int fibonacci(int n) {
     if (n == 0) {
@@ -199,19 +215,20 @@ public class Homework1 {
   // PROBLEM 7
 
   /**
-  *
-  */
+   * This method takes in a String, checks for the palindrome property (being the same read backwards
+   * or forwards) and returns its results as a boolean.
+   * 
+   * @param forward The input String.
+   * @return A boolean representing whether or not the input is a palindrome.
+   */
 
   public boolean isPalindrome(String forward) {
     StringBuilder theSwitch = new StringBuilder();
-    System.out.println(forward.length());
-   
     //1-2-Switch!
     for (int i = forward.length(); i > 0; i--) {
       theSwitch.append(forward.substring(i-1, i));
     }
     String backward = theSwitch.toString();
-    System.out.println(backward);
     if (forward.equals(backward)) {
       return true;
     } else {
