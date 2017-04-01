@@ -1,0 +1,37 @@
+===Problem 1===
+Problem 1a: successfully completed!
+Problem 1b: successfully completed!
+Problem 1c: successfully completed!
+===Problem 2===
+2
+6
+1
+-4
+===Problem 3===
+----
+-  -
+-  -
+----
+4444
+4  4
+4  4
+4444
+===Problem 4===
+Reynolds, A.
+Hopper, G.
+===Problem 5===
+1.0
+2.0
+0.1
+===Problem 6===
+0
+1
+1
+2
+55
+75025
+===Problem 7===
+true
+false
+true
+true

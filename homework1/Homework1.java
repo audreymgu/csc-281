@@ -1,6 +1,12 @@
 /**
  * Homework 1 for CSC-281.001 Spring 2017
- * Your codename: Shurdriira
+ *
+ * Points: 100
+ * Great work!
+ * Good comments on problem 1.
+ * Excellent Javadoc comments.
+ *
+ *   Your codename: Shurdriira
  */
 
 import java.math.*;
@@ -10,10 +16,10 @@ public class Homework1 {
 
   /**
    * The entry point for the program.
-   * 
+   *
    * @param args Commandline input arugments.
    */
-   
+
   public static void main(String[] args) {
     Homework1 hw1 = new Homework1();
 
@@ -38,7 +44,7 @@ public class Homework1 {
     System.out.println(String.valueOf(hw1.min3(1.0, 2.0, 3.0)));
     System.out.println(String.valueOf(hw1.min3(4.0, 3.0, 2.0)));
     System.out.println(String.valueOf(hw1.min3(0.5, 0.1, 0.5)));
-    
+
     System.out.println("===Problem 6===");
     System.out.println(hw1.fibonacci(0));
     System.out.println(hw1.fibonacci(1));
@@ -46,8 +52,8 @@ public class Homework1 {
     System.out.println(hw1.fibonacci(3));
     System.out.println(hw1.fibonacci(10));
     System.out.println(hw1.fibonacci(25));
-    
-    
+
+
     System.out.println("===Problem 7===");
     System.out.println(hw1.isPalindrome("racecar"));
     System.out.println(hw1.isPalindrome("cat"));
@@ -58,13 +64,13 @@ public class Homework1 {
   // PROBLEM 1
 
   public void problem1() {
-   
+
     /**
      * The first component of problem1 creates a variable of type double, result1, and assigns to it
-     * the double value derived from dividing 5.0 by 4.0. Because all values are correctly typed, the correct result, 
+     * the double value derived from dividing 5.0 by 4.0. Because all values are correctly typed, the correct result,
      * 1.25, is stored.
      */
-   
+
     double result1 = 5.0 / 4.0;
     if (result1 == 1.25) {
       System.out.println("Problem 1a: successfully completed!");
@@ -84,7 +90,7 @@ public class Homework1 {
     } else {
       System.out.println("Problem 1b: not quite right.");
     }
-    
+
     /**
      * The third and final component creates two new strings and references them as strA and strB.
      * It then checks for equality between the two. The error lies in the type of equality being checked,
@@ -100,7 +106,7 @@ public class Homework1 {
     }
   }
 
-  // PROBLEM 2   
+  // PROBLEM 2
 
   /**
    * This method takes one double and returns an integer that is rounded up from that double.
@@ -124,7 +130,7 @@ public class Homework1 {
   }
 
   // PROBLEM 3
- 
+
   /**
    * This method takes a single character uses it to print a 4x4 character rectangle
    * with an internal 2x2 white space.
@@ -145,11 +151,11 @@ public class Homework1 {
   }
 
   // PROBLEM 4
- 
+
   /**
    * citationName takes in two Strings representing an individual's first and last name
    * and returns a String with their last name and first initial, in a typical citation format.
-   * 
+   *
    * @param firstName The author's first name.
    * @param lastName The author's last name.
    * @return formatName The formatted result.
@@ -165,21 +171,21 @@ public class Homework1 {
 
   /**
    * The method min3 taken in three double values, determines the smallest value amongst them, and returns that value.
-   * 
+   *
    * @param value1 The first input value.
    * @param value2 The second input value.
    * @param value3 The third input value.
    * @return minValue The smallest value of the three.
    */
 
-  /* As a clarification, the formatting of the "test" statements in this homework is such 
+  /* As a clarification, the formatting of the "test" statements in this homework is such
    * that the min3 method should not be explicitly responsible for the printing
    * of the the minimum value. It should simply return the value; the instructions
    * presented led to compilation errors.
    */
 
   public double min3(double value1, double value2, double value3) {
-    double minValue; 
+    double minValue;
     if(value1 < value2) {
       minValue = value1;
     } else {
@@ -192,12 +198,12 @@ public class Homework1 {
   }
 
   // PROBLEM 6
-  
+
   /**
    * The method fibonacci takes in an integer representing a position in a standard fibonacci sequence
    * (beginning with the numbers 0 and 1 as seeds) and, through recursion, determines and returns
    * the fibonacci number at that position.
-   *   
+   *
    * @param n Input value representing the requested position in the fibonacci sequence.
    * @return The fibonacci at that position.
    */
@@ -211,13 +217,13 @@ public class Homework1 {
       return fibonacci(n - 1) + fibonacci(n - 2);
     }
   }
- 
+
   // PROBLEM 7
 
   /**
    * This method takes in a String, checks for the palindrome property (being the same read backwards
    * or forwards) and returns its results as a boolean.
-   * 
+   *
    * @param forward The input String.
    * @return A boolean representing whether or not the input is a palindrome.
    */
