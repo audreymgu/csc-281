@@ -52,12 +52,6 @@ import javax.swing.JPanel;
 
 import shapes.*;
 
-/**
- * The entry point for the PolyWhirl program. This class inherits JFrame and acts as a window in the
- * graphical user interface.
- * 
- * You do not need to edit this class for the assignment.
- */
 public class PolyWhirl extends JFrame {
 
   public static final int WINDOW_WIDTH = 720;
@@ -89,7 +83,6 @@ public class PolyWhirl extends JFrame {
       @Override
       public void run() {
         PolyWhirl polyWhirl = new PolyWhirl();
-        // polyWhirl.drawShapes();
         polyWhirl.surface.readAndGenerateShapes();
         polyWhirl.setVisible(true);
       }
@@ -111,15 +104,17 @@ public class PolyWhirl extends JFrame {
   class Surface extends JPanel {
 
     List<Crystal> crystals;
-    // Add the lists for your shapes below.
     List<Tri> triangles;
-    // List<Quad> quadrilaterals;
+    List<Quad> quadrilaterals;
+    List<Pent> pentagons;
+    List<Hex> hexagons;
 
     public Surface() {
       crystals = new ArrayList<Crystal>();
-      // initialize your shape lists here.
       triangles = new ArrayList<Tri>();
-      // quadrilaterals = new ArrayList<Quad>();
+      quadrilaterals = new ArrayList<Quad>();
+      pentagons = new ArrayList<Pent>();
+      hexagons = new ArrayList<Hex>();
     }
 
     @Override
@@ -128,16 +123,15 @@ public class PolyWhirl extends JFrame {
       this.drawShapes(g);
       this.readAndGenerateShapes();
     }
-
+     
+    // readAndGenerateShapes
+    
     /**
-     * This is where most of your work in this class will be done.
+     * This method translates user input into shape drawing requests. It splits and formats the input
+     * and uses conditional logic to add the information to the proper shape list.
      */
-    // TODO: document
+    
     public void readAndGenerateShapes() {
-      /*
-       * Iterate through reading lines of input. Stop when there is no input left. (You can simulate
-       * end of input on the keyboard with ctrl-d).
-       */
       Scanner stdin = new Scanner(System.in);
       while(stdin.hasNextLine()) {
         String line = stdin.nextLine();
@@ -149,29 +143,25 @@ public class PolyWhirl extends JFrame {
         }
         if (intSpec[0] == 3) {
           this.triangles.add(new Tri(intSpec[1], intSpec[2]));
+        } else if (intSpec[0] == 4) {
+          this.quadrilaterals.add(new Quad(intSpec[1], intSpec[2]));
+        } else if (intSpec[0] == 5) {
+          this.pentagons.add(new Pent(intSpec[1], intSpec[2]));
+        } else if (intSpec[0] == 6) {
+          this.hexagons.add(new Hex(intSpec[1], intSpec[2]));
         }
       }
       stdin.close();
-      
-      /*
-       * Create a shape for that line.
-       */
-      
-      /*
-       * Add the shape to a list to be drawn.
-       */
-      
-      /*
-       * Here are some test shapes to show that the system works. Remove them before you turn in
-       * your homework. Use the power of the crystals wisely!
-       */
-      this.crystals.add(new Crystal(100, 125));
-      this.crystals.add(new Crystal(100, 225));
-      // this.triangles.add(new Tri(200, 125));
-      // You can stop removing now.
     }
 
-    // TODO: document
+    // drawShapes
+    
+    /**
+     * This method uses Java's Graphics2D library to draw all requested graphical elements
+     * atop a background set to the size of the display window. It does so by
+     * drawing objects according to the specifications enumerated in the program's shape lists.
+     */
+    
     public void drawShapes(Graphics g) {
       // draw background
       // GradientPaint gradient;
@@ -181,13 +171,19 @@ public class PolyWhirl extends JFrame {
       for (Crystal c : this.crystals) {
         c.draw(g);
       }
-      // Add the loops to draw your shapes below.
       for (Tri t : this.triangles) {
         t.draw(g);
       }
-      // for (Quad q : this.quadrilaterals) {
-      //   q.draw(g);
-      // }
+      for (Quad q : this.quadrilaterals) {
+        q.draw(g);
+      }
+      for (Pent p : this.pentagons) {
+        p.draw(g);
+      }
+      for (Hex h : this.hexagons) {
+        h.draw(g);
+      }
+
     }
   }
 }

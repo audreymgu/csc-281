@@ -2,10 +2,14 @@ package shapes;
 
 import java.awt.Graphics;
 
+// BasicShape
+// The Alpha and the Omega
+
 /**
  * BasicShape acts as a base class for all shapes in the assignment. Each of your shapes should
  * inherit this class.
  */
+
 public class BasicShape {
 
   // the x and y position of the center of the shapes.
