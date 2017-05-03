@@ -1,148 +1,169 @@
 import sort.*;
+import java.util.Random;
+import java.util.Arrays;
 
 public class SortingTest {
 
-
-  private enum SortDirection {
-    ASCENDING,
-    DESCENDING
-  }
-  
+  //Main method
   public static void main(String[] args) {
+	  
+	  //Create new instance of SortingTest
     SortingTest tester = new SortingTest();
-    
-    int[] test1 = {1, 2, 3, 4, 5};
-    int[] test2 = {5, 4, 3, 2, 1};
-    int[] test3 = {1, 3, 2, 5, 4};
-    int[] test4 = {5, 1, 2, 3, 4};
-    int[] test5 = {3, 2, 1, 5, 4};
-    
-    System.out.println("Let the tests begin!");
-    System.out.println("Test1:");
-    tester.testAllSorters(test1);
-    
-    System.out.println("Test2:");
-    tester.testAllSorters(test2);
-    
-    System.out.println("Test3:");
-    tester.testAllSorters(test3);
-    
-    System.out.println("Test4:");
-    tester.testAllSorters(test4);
-    
-    System.out.println("Test5:");
-    tester.testAllSorters(test5);
- 
-    System.out.println("Tests complete.");
-  }
-  
-  private void testAllSorters(int[] data) {
-   
-    System.out.print("Bubble Ascending: ");
-    System.out.println(testBubbleAscending(data));
-    
-    System.out.print("Bubble Descending: ");
-    System.out.println(testBubbleDescending(data));
-    
-    System.out.print("Selection Ascending: ");
-    System.out.println(testSelectionAscending(data));
-    
-    System.out.print("Selection Descending: ");
-    System.out.println(testSelectionDescending(data));
-    
-    System.out.print("Insertion Ascending: ");
-    System.out.println(testInsertionAscending(data));
-    
-    System.out.print("Insertion Descending: ");
-    System.out.println(testInsertionDescending(data));
 
+    //Print test results
+    System.out.println("");
+    System.out.println("TEST RESULTS");
+    System.out.println("");
+    tester.testAllSorters();
+	  
   }
   
-
-  private boolean testBubbleAscending(int[] data) {
-    Bubble.Ascending(data);
-    int[] check = {1, 2, 3, 4, 5};
-    for (int i = 0; i < data.length; i++) {
-    	if (data[i] != check[i]) {
-    		return false;
-    	}
-    }
-    return true;
-  }
-  
-  private boolean testBubbleDescending(int[] data) {
-    Bubble.Descending(data);
-    int[] check = {5, 4, 3, 2, 1};
-    for (int i = 0; i < data.length; i++) {
-    	if (data[i] != check[i]) {
-    		return false;
-    	}
-    }
-    return true;
+  private void testAllSorters() {
+	  
+    //Performance tests
+    
+    //Bubble Sort
+    System.out.println("--BUBBLE SORT--");
+    
+    System.out.println("Average assignments in 10 ascending runs, for each case:");
+    System.out.println("length 10: " + performanceBubbleAscending(10));
+    System.out.println("length 100: " + performanceBubbleAscending(100));
+    System.out.println("length 1000: " + performanceBubbleAscending(1000));
+    System.out.println("");
+    
+    System.out.println("Average assignments in 10 descending runs, for each case:");    		System.out.println("length 10: " + performanceBubbleDescending(10));
+    System.out.println("length 100: " + performanceBubbleDescending(100));
+    System.out.println("length 1000: " + performanceBubbleDescending(1000));
+    System.out.println("");
+    
+    //Insertion Sort
+    System.out.println("--INSERTION SORT--");
+    
+    System.out.println("Average assignments in 10 ascending runs, for each case:");
+    System.out.println("length 10: " + performanceInsertionAscending(10));
+    System.out.println("length 100: " + performanceInsertionAscending(100));
+    System.out.println("length 1000: " + performanceInsertionAscending(1000));
+    System.out.println("");
+    
+    System.out.println("Average assignments in 10 descending runs, for each case:");
+    System.out.println("length 10: " + performanceInsertionDescending(10));
+    System.out.println("length 100: " + performanceInsertionDescending(100));
+    System.out.println("length 1000: " + performanceInsertionDescending(1000));
+    System.out.println("");
+    
+    //Selection Sort
+    System.out.println("--SELECTION SORT--");
+    
+		System.out.println("Average assignments in 10 ascending runs, for each case:");
+    System.out.println("length 10: " + performanceSelectionAscending(10));
+    System.out.println("length 100: " + performanceSelectionAscending(100));
+    System.out.println("length 1000: " + performanceSelectionAscending(1000));
+    System.out.println("");
+    
+    System.out.println("Average assignments in 10 descending runs, for each case:");
+    System.out.println("length 10: " + performanceSelectionDescending(10));
+    System.out.println("length 100: " + performanceSelectionDescending(100));
+    System.out.println("length 1000: " + performanceSelectionDescending(1000));
+    System.out.println("");
     
   }
   
-  private boolean testSelectionAscending(int[] data) {
-    Selection.ascending(data);
-    int[] check = {1, 2, 3, 4, 5};
-    for (int i = 0; i < data.length; i++) {
-      if (data[i] != check[i]) {
-        return false;
-      }
-    }
-    return true; 
+  // arrayGenerator
+  
+  /**
+   * This method generates an integer array of specified size, 
+   * containing randomly generated values ranging from 1 to the
+   * total number of array places. Repeat values are possible.
+   * 
+   * @param size The requested array size.
+   */
+  
+  private int[] arrayGenerator(int size) {
+	  int[] builtArray = new int[size];
+	  Random randomNum = new Random();
+	  
+	  for(int i = 0; i < builtArray.length; i++) {
+		  builtArray[i] = randomNum.nextInt((size - 1) + 1) + 1;
+	  }
+	  
+	  return builtArray;
   }
   
-  private boolean testSelectionDescending(int[] data) {
-    Selection.descending(data);
-    int[] check = {5, 4, 3, 2, 1};
-    for (int i = 0; i < data.length; i++) {
-      if (data[i] != check[i]) {
-        return false;
-      }
-    }
-    return true; 
-  }
-
-  private boolean testInsertionAscending(int[] data) {
-    int[] sortedData = Insertion.ascending(data);
-    boolean checkSort = isSorted(sortedData, SortDirection.ASCENDING);
-    return checkSort;
-  } 
+  // Performance Tests
+  // These test methods are identical outside of differing algorithm calls.
+    
+  private double performanceBubbleAscending (int size) {
+  	
+  			for(int i = 0; i < 10; i++) {
+  				int[] testArray = arrayGenerator(size);
+  				int[] sortedArray = Bubble.ascending(testArray);	  		
+  			}
+  	
+  			double finalSum = (double)(Bubble.assignCount / 10.0);
+  			Bubble.assignCount = 0;
+  			return finalSum;
+  		}
+  	
+  	private double performanceBubbleDescending (int size) {
+  	
+  			for(int i = 0; i < 10; i++) {
+  				int[] testArray = arrayGenerator(size);
+  				int[] sortedArray = Bubble.descending(testArray);	  		
+  			}
+  	
+  			double finalSum = (double)(Bubble.assignCount / 10.0);
+  			Bubble.assignCount = 0;
+  			return finalSum;
+  		}
   
-  private boolean testInsertionDescending(int[] data) {
-    int[] sortedData = Insertion.descending(data); 
-    boolean checkSort = isSorted(sortedData, SortDirection.DESCENDING);
-    return checkSort;
+  private double performanceInsertionAscending (int size) {
+	  
+	  	for(int i = 0; i < 10; i++) {
+	  		int[] testArray = arrayGenerator(size);
+	  		int[] sortedArray = Insertion.ascending(testArray);	  		
+	  	}
+	  
+	  	double finalSum = (double)(Insertion.assignCount / 10.0);
+	  Insertion.assignCount = 0;
+	  	return finalSum;
   }
-  private boolean isSorted(int[] data, SortDirection direction) {
+  
+  private double performanceInsertionDescending (int size) {
+  
+  		for(int i = 0; i < 10; i++) {
+  			int[] testArray = arrayGenerator(size);
+  			int[] sortedArray = Insertion.descending(testArray);	  		
+  		}
 
-  if (direction == SortingTest.SortDirection.ASCENDING) {
-    int n = data.length;
-
-			for (int i = 0; i < n; i++) {
-				for (int j = 1; j < (n - i); j++) {
-					if (data[j - 1] > data[j]) {
-						return false;
-					}
-				}
-			}
-
-		}
-		if (direction == SortingTest.SortDirection.DESCENDING) {
-			int n = data.length;
-
-			for (int i = 0; i < n; i++) {
-				for (int j = 1; j < (n - i); j++) {
-					if (data[j - 1] < data[j]) {
-						return false;
-					}
-				}
-			}
-		}
-		return true;
-
-	} 
- }
+  		double finalSum = (double)(Insertion.assignCount / 10.0);
+  		Insertion.assignCount = 0;
+  		return finalSum;
+  	}
+  	
+	private double performanceSelectionAscending (int size) {
+  
+  			for(int i = 0; i < 10; i++) {
+  				int[] testArray = arrayGenerator(size);
+  				int[] sortedArray = Selection.ascending(testArray);	  		
+  			}
+  
+  			double finalSum = (double)(Selection.assignCount / 10.0);
+  		  Selection.assignCount = 0;
+  			return finalSum;
+  	}
+  	
+  	private double performanceSelectionDescending (int size) {
+  	
+  				for(int i = 0; i < 10; i++) {
+  					int[] testArray = arrayGenerator(size);
+  					int[] sortedArray = Selection.descending(testArray);	  		
+  				}
+  
+  				double finalSum = (double)(Selection.assignCount / 10.0);
+  				Selection.assignCount = 0;
+  				return finalSum;
+  			}
+  
+}
   
   
