@@ -1,3 +1,5 @@
+//Score: 100 -- great job!
+
 import sort.*;
 import java.util.Random;
 import java.util.Arrays;
@@ -6,10 +8,10 @@ public class SortingTest {
 
   //Main method
   public static void main(String[] args) {
-  
+
     //Create new instance of SortingTest
     SortingTest tester = new SortingTest();
-  
+
     //Print test results
     System.out.println("");
     System.out.println("TEST RESULTS");
@@ -31,7 +33,7 @@ public class SortingTest {
     System.out.println("length 1000: " + performanceBubbleAscending(1000));
     System.out.println("");
 
-    System.out.println("Average assignments in 10 descending runs, for each case:");        
+    System.out.println("Average assignments in 10 descending runs, for each case:");
     System.out.println("length 10: " + performanceBubbleDescending(10));
     System.out.println("length 100: " + performanceBubbleDescending(100));
     System.out.println("length 1000: " + performanceBubbleDescending(1000));
@@ -72,10 +74,10 @@ public class SortingTest {
   // arrayGenerator
 
   /**
-   * This method generates an integer array of specified size, 
+   * This method generates an integer array of specified size,
    * containing randomly generated values ranging from 1 to the
    * total number of array places. Repeat values are possible.
-   * 
+   *
    * @param size The requested array size.
    */
 
@@ -97,9 +99,9 @@ public class SortingTest {
 
     for(int i = 0; i < 10; i++) {
       int[] testArray = arrayGenerator(size);
-      int[] sortedArray = Bubble.ascending(testArray);        
+      int[] sortedArray = Bubble.ascending(testArray);
     }
-  
+
     double finalSum = (double)(Bubble.assignCount / 10.0);
     Bubble.assignCount = 0;
     return finalSum;
@@ -109,7 +111,7 @@ public class SortingTest {
 
     for(int i = 0; i < 10; i++) {
       int[] testArray = arrayGenerator(size);
-      int[] sortedArray = Bubble.descending(testArray);        
+      int[] sortedArray = Bubble.descending(testArray);
     }
 
     double finalSum = (double)(Bubble.assignCount / 10.0);
@@ -121,7 +123,7 @@ public class SortingTest {
 
     for(int i = 0; i < 10; i++) {
       int[] testArray = arrayGenerator(size);
-      int[] sortedArray = Insertion.ascending(testArray);        
+      int[] sortedArray = Insertion.ascending(testArray);
     }
 
     double finalSum = (double)(Insertion.assignCount / 10.0);
@@ -133,7 +135,7 @@ public class SortingTest {
 
     for(int i = 0; i < 10; i++) {
       int[] testArray = arrayGenerator(size);
-      int[] sortedArray = Insertion.descending(testArray);        
+      int[] sortedArray = Insertion.descending(testArray);
     }
 
     double finalSum = (double)(Insertion.assignCount / 10.0);
@@ -145,7 +147,7 @@ public class SortingTest {
 
     for(int i = 0; i < 10; i++) {
       int[] testArray = arrayGenerator(size);
-      int[] sortedArray = Selection.ascending(testArray);        
+      int[] sortedArray = Selection.ascending(testArray);
     }
 
     double finalSum = (double)(Selection.assignCount / 10.0);
@@ -157,14 +159,12 @@ public class SortingTest {
 
     for(int i = 0; i < 10; i++) {
       int[] testArray = arrayGenerator(size);
-      int[] sortedArray = Selection.descending(testArray);        
+      int[] sortedArray = Selection.descending(testArray);
     }
 
     double finalSum = (double)(Selection.assignCount / 10.0);
     Selection.assignCount = 0;
     return finalSum;
   }
-  
+
 }
-
-
