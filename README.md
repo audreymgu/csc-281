@@ -1,7 +1,7 @@
 # CSC-281: Introduction to Computer Science II
 
 ## Overview
-This repository is an archive of previous work conducted as part of American University's second introductory level computer science course. While most of the project code contained here is representative of my own original thinking, it does feature work that was the result of collaboration with other students. I may revisit or revise this code in the future.
+This repository is an archive of work conducted as part of American University's second introductory level computer science course. While most of the project code contained here is representative of my own original thinking, it does feature work that was the result of collaboration with other students. I may revisit or revise this code in the future.
 
 ## File Structure
 Files are sorted by assignment.
